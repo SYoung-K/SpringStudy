@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xmlns = "http://www.springframework.org/schema/beans" 
+	xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+	
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation = "
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		">
+
+	<context:annotation-config>
+	
+	</context:annotation-config>
+	
+	<bean id='bd' class='aop.exam1.BoardDao'/>
+	<bean id='fi' class='aop.exam1.FileDao'/>
+
+	<bean id='advice' class='aop.exam1.Advice'/>
+	
+	
+	
+	<!-- spring AOP -->
+	
+	<bean id='proxy' class='org.springframework.aop.framework.ProxyFactoryBean'>
+		<property name="target" ref='bd'></property>
+		<property name="interceptorNames">
+			<list>
+				<value>advisor</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<bean id='advisor' class='org.springframework.aop.support.DefaultPointcutAdvisor'>
+		<property name="advice" ref='advice'/> <!--  advice = 시점 (before / after / around 중 언제 실행할것인가. -->
+		<property name="pointcut">
+			<bean class='org.springframework.aop.support.JdkRegexpMethodPointcut'>
+				<property name="patterns">
+					<list>
+						<value>.*insert.*</value>  <!-- . 은 모든 패키지 * 모든 반환형 에서 run 메소드의 매게변수의 유형 (.전체 *모든형태 ?)  -->
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	
+	
+</beans>
+
+
+

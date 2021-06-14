@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board"> 
+		<select id="totList" parameterType="mvc.BoardVo" resultType="mvc.BoardVo">
+		select * from board
+		</select>
+		
+		<select id="searchList" parameterType="mvc.Page" resultType="mvc.BoardVo">
+		SELECT * FROM(		
+			SELECT ROWNUM rno, b.* from
+				(select * from board WHERE subject LIKE '%${findStr}%' ORDER BY SERIAL)b 
+					)WHERE rno BETWEEN #{startNo} AND #{endNo}
+		</select>
+		
+		
+</mapper>   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
