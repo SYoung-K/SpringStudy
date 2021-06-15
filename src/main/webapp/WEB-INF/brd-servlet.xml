@@ -20,10 +20,11 @@
 	<context:annotation-config/>
 	<aop:aspectj-autoproxy/>
 
-	<bean id='daoSample' class='mvc.BoardDao'/>
-	<bean id="controllerSample" class="mvc.BoardController"/>
+	<bean id='dao' class='board.BoardDao'/>
+	<bean id="brdctrl" class="board.BrdController"/>
+	<bean id="brdctrl2" class="board.BoardFileUploadController"/>
 	
-	<bean id="viewResolverSample" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/board/"/>  <!-- view는 webapp 안에 있는 폴더들로 구성  -->	
 		<property name="suffix" value=".jsp"/>	<!--    /hello.jsp   view -->
 	</bean>

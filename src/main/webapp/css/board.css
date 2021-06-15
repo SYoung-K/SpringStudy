@@ -1,0 +1,143 @@
+/* -------------------------
+   게사판과 관련한 스타일 
+   작성자 : jobtc(박원기)
+   작성일 : 2021.04
+   -------------------------
+*/
+@charset "UTF-8";
+#board{
+	width:100%;
+	position: relative;
+}
+#board>h2{
+	margin-bottom:30px;
+}
+#board #btn_zone{
+	text-align: center;
+	margin-top:10px;
+	padding-top:10px;
+	border-top:2px dotted #777;
+}
+#board form>label{
+	display: inline-block;
+	width:80px;
+	text-align: left;
+}
+#board form>textarea{
+	width:100%;
+	height:200px;
+	margin-top:3px;
+	background-color : #eee;
+}
+#board form>input[name=subject]{
+	width:550px;
+}
+
+/*---검색 (search) --------------*/
+#board .find_zone{
+	display:inline-block;
+	float:right;
+}
+
+#board .title{
+	border-top:2px solid #888;
+	border-bottom:2px solid #888;
+	background-color:#ccc;
+}
+
+#board .item:hover{
+	background-color : #ddd;
+	cursor: pointer;
+	 
+}
+
+#board .title>span, #board .item>span{
+	display:inline-block;
+} 
+
+#board .title>.no ,  #board .item>.no{ width:60px;}
+#board .title>.subject, #board .item>.subject {width:380px;}
+#board .title>.date, #board .item>.date{ width:100px;}
+#board .title>.mid,  #board .item>.mid{ width: 100px;}
+#board .title>.hit,  #board .item>.hit{ width:60px;}
+
+/* 이미지 미리보기 -------------------- */
+#image_preview{
+	position: relative;	
+}
+#image_preview img {
+	width:150px;
+	height:180px;
+}
+
+#image_preview #attzone{
+	width:100%;
+	min-height:130px;
+	padding:0;
+	border:2px dotted #aaa;
+	background-color:rgba(240,240,240,0.3);
+}
+#image_preview #attzone .item{
+	width:130px;
+	height:150px;
+	margin:5px;
+	position: relative;
+	display: inline-block;
+}
+
+#attzone .del_btn{
+	position: absolute;
+	font-size:24pt;
+	color:#ff0000;
+	right:3px;
+	bottom:3px;
+	background-color:rgba(255,255,255,.2);
+	padding:0;
+	border-width:0;
+	cursor: pointer;
+}
+
+
+
+/* 수정화면에서 삭제 버튼 */
+#att_list .file_zone{
+	display: inline-block;
+	width:160px;
+	position: relative;
+}
+#att_list .del_file_chk{
+	background-color : #fff6;
+	position: absolute;
+	bottom: 5px;
+	right: 15px;
+}
+
+/* 수정이나 삭제시 암호 입력 */
+#board #brdPasswordZone{
+	position: absolute;
+	top : 0;
+	left : 0;
+	background-color : #0009;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+#board #textZone{
+	width: 350px;
+	height: 120px;
+	margin: 70px auto;
+	background-color : #eee;
+	text-align: center;
+	padding:26px;
+	border-radius : 10px;
+	line-height: 30px;
+}
+
+
+
+
+
+
+
+

@@ -25,4 +25,19 @@
 		<url-pattern>*.board</url-pattern>
 	</servlet-mapping>
 	
+		<servlet>
+		<servlet-name>brd</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+	</servlet>
+	
+	
+	<servlet-mapping>
+		<servlet-name>brd</servlet-name>
+		<url-pattern>*.brd</url-pattern>
+	</servlet-mapping>
+	
+
+	
 </web-app>
