@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class BoardFileUploadController {
 	
-	final static String saveDir = "C:\\eclipse\\workspace\\SpringStudy\\src\\main\\webapp\\upload";
+	final static String saveDir = "C:\\eclipse\\workspace\\SpringStudy\\src\\main\\webapp\\upload\\";
 	
 	public List<BoardAttVo> upload(HttpServletRequest req){
 		List<BoardAttVo> attList = null;

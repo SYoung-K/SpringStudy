@@ -5,7 +5,6 @@ var brd = {};
 
 	//게시판 메뉴를 클릭한 경우
 	brd.home = function(){
-	alert("버튼 눌림")
 	$('#border').load('search.brd');
 	}
 	
@@ -29,16 +28,17 @@ brd.init = function(){
 	})
 	
 	$('#board #btnInsert').on('click', function(){
-		alert("버튼 눌림")
 		var frm = $('#frm_board')[0];
 		var param = $(frm).serialize();
 		$('#border').load('register.brd', param);
 	})
 	
 	$('#board #btnInsertR').on('click', function(){
-		alert("버튼눌림")
 		var frm = $('#frm_upload')[0];
 		var data = new FormData(frm);
+		
+		var frm2 = $('#frm_board')[0];
+		var param = $(frm2).serialize();
 	
 		$.ajax({
 			type    : 'POST',
@@ -48,8 +48,9 @@ brd.init = function(){
 			contentType : false,
 			processData : false,
 			success : function(resp){
-				alert("성공")
-				$('#border').load('insertR.brd');
+				$.post('registerR.brd', param, function(data){
+					$('#border').html(data);
+				})
 			}
 		});
 		
@@ -60,7 +61,9 @@ brd.init = function(){
 	$('#board #btnModify').on('click', function(){
 		var frm = $('#frm_board')[0];
 		var param = $(frm).serialize();
-		$('#border').load('modify.brd', param);	
+		$.post('modify.brd', param, function(data){
+		$('#border').html(data)
+	})
 	})
 
 	$('#board #btnUpdate').on('click', function(){
@@ -88,8 +91,12 @@ brd.init = function(){
 			contentType : false,
 			processData : false,
 			success : function(resp){
+				alert('작동됨')
 				$('#brdPasswordZone').css({'display' : 'none'});
-				$('#border').load('modifyR.brd');  
+				$.post('modifyR.brd', param, function(data){
+					alert(data)
+					$('#border').html(data);
+				})
 			}
 		});
 	});
@@ -160,7 +167,9 @@ brd.view = function(serial){
 	var frm = $('#frm_board')[0];
 	frm.serial.value = serial;
 	var param = $(frm).serialize();
-	$('#border').load('view.brd', param);
+	$.post('view.brd', param, function(data){
+		$('#border').html(data)
+	})
 	
 }
 

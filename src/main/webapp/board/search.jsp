@@ -21,8 +21,8 @@
 			<input type='search' name='findStr' value='${page.findStr }'/>
 			<input type='button' value='검색' id='btnFind'/>
 		</div>
-		<input type='hidden' name='nowPage' value='${page.nowPage }'/>		
-		<input type='hidden' name='serial' value='${vo.serial }'/>		
+		<input type='hidden' name='nowPage' value='${(empty param.nowPage) ? 1: param.nowPage }'/>		
+		<input type='hidden' name='serial' value='${(empty param.serial) ? 1: param.serial }'/>		
 	</form>
 	
 	<div class='title'>

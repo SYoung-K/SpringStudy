@@ -40,7 +40,7 @@
 
 		<input type='hidden' name='nowPage' value='${param.nowPage }'/>		
 		<input type='hidden' name='findStr' value='${param.findStr }'/>		
-		<input type='hidden' name='serial' value='${param.serial }'/>			
+		<input type='hidden' name='serial' value='${param.serial }'/>
 	</form>
 	
 	<form action="" name='frm_upload' id='frm_upload' method="post">

@@ -170,15 +170,11 @@ public class BoardDao {
 		BoardVo vo = new BoardVo();
 		
 		try {
-			System.out.println("1");
 			sqlSession.update("board.brd_hitUp", serial);
 			sqlSession.commit();
-			System.out.println("2");
 			vo = sqlSession.selectOne("board.brd_view", serial);
 			List<BoardAttVo> attList = sqlSession.selectList("board.brdAtt_view", serial);
-			System.out.println("3");
 			vo.setAttList(attList);
-			System.out.println("4");
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
